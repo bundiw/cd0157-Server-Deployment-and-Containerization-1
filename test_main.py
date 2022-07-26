@@ -3,14 +3,16 @@ Tests for jwt flask app.
 '''
 import os
 import json
+from dotenv import load_dotenv
 import pytest
 
 import main
+load_dotenv()
+SECRET = os.getenv('SECRET')
+TOKEN = os.getenv('TOKEN')
+EMAIL = os.getenv('EMAIL')
+PASSWORD =os.getenv('PASSWORD')
 
-SECRET = 'TestSecret'
-TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjEzMDY3OTAsIm5iZiI6MTU2MDA5NzE5MCwiZW1haWwiOiJ3b2xmQHRoZWRvb3IuY29tIn0.IpM4VMnqIgOoQeJxUbLT-cRcAjK41jronkVrqRLFmmk'
-EMAIL = 'wolf@thedoor.com'
-PASSWORD = 'huff-puff'
 
 @pytest.fixture
 def client():
